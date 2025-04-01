@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theory - Optics & Laser Physics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Optics & Laser Physics - Theory</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calculations.html">Calculations</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Key Concepts in Optics and Laser Physics</h2>
+
+        <!-- Reflection & Refraction -->
+        <section>
+            <h3>1. Reflection & Refraction</h3>
+            <p><strong>Reflection:</strong> When light strikes a reflective surface, it bounces back. The angle of incidence (θ₁) equals the angle of reflection (θ₂).</p>
+            <p><strong>Refraction:</strong> The bending of light when it passes from one medium to another due to a change in speed.</p>
+            <p><strong>Formula:</strong> <em>n₁ sin(θ₁) = n₂ sin(θ₂)</em></p>
+            <img src="reflection-refraction.jpg" alt="Reflection and Refraction Diagram" style="width:100%; max-width:600px; border:1px solid #ccc;">
+        </section>
+
+        <!-- Snell's Law -->
+        <section>
+            <h3>2. Snell's Law</h3>
+            <p>Snell's Law describes how light bends when moving between different media. It relates the angles of incidence and refraction to the refractive indices of the media.</p>
+            <p><strong>Formula:</strong> <em>n₁ sin(θ₁) = n₂ sin(θ₂)</em></p>
+            <!-- <img src="snells-law.jpg" alt="Snell's Law Diagram" style="width:100%; max-width:600px; border:1px solid #ccc;"> -->
+        </section>
+
+        <!-- Total Internal Reflection (TIR) -->
+        <section>
+            <h3>3. Total Internal Reflection (TIR)</h3>
+            <p>TIR occurs when light attempts to pass from a denser medium to a less dense one at an angle greater than the critical angle.</p>
+            <p><strong>Critical Angle Formula:</strong> <em>θc = sin⁻¹(n₂ / n₁)</em></p>
+            <img src="tir.jpg" alt="Total Internal Reflection Diagram" style="width:100%; max-width:600px; border:1px solid #ccc;">
+        </section>
+
+        <!-- Brewster's Angle -->
+        <section>
+            <h3>4. Brewster's Angle</h3>
+            <p>Brewster's Angle is the angle at which light with a particular polarization is perfectly transmitted through a transparent surface without any reflection.</p>
+            <p><strong>Formula:</strong> <em>θB = tan⁻¹(n₂ / n₁)</em></p>
+            <img src="brewsters-angle.jpg" alt="Brewster's Angle Diagram" style="width:100%; max-width:600px; border:1px solid #ccc;">
+        </section>
+
+        <!-- Stimulated & Spontaneous Emission -->
+        <section>
+            <h3>5. Stimulated & Spontaneous Emission</h3>
+            <p><strong>Spontaneous Emission:</strong> An excited atom releases a photon naturally without external influence.</p>
+            <p>In this case, one of the electron is not in the excited. Spontaneously, the atom emits a photon with an energy equals to 
+                the difference in energy between the energy when the electron is in the excite state and the energy of the level when the
+                electron is in the relaxed state (lower energy state). During this emission the electron jumps down to the lower energy 
+                state. The atoms give up energy which is carried by the emitted photon and it is left unexcited. On the other side, 
+                the difference in energy between the two atomic states involved. However, there is not a prefer direction of motion 
+                for the emitted photon; in random.</p>
+                <br>
+            <p><strong>Stimulated Emission:</strong> An external photon stimulates the release of another photon, resulting in coherent light (used in lasers).</p>
+            <p>When a photon with the same energy as the difference between two atomic levels reaches the atom and the corresponding
+                electron to those levels is in the excited state, the electron jumps down to the lower energy state emitting an additional
+                photon. After this process, two photons are emerging from the atom for every incident photon that interacts with the
+                atom inducing the emission.</p>
+            <img src="emission.jpg" alt="Spontaneous and Stimulated Emission" style="width:100%; max-width:600px; border:1px solid #ccc;">
+        </section>
+
+        <!-- Numerical Aperture (NA) -->
+        <section>
+            <h3>6. Numerical Aperture (NA)</h3>
+            <p>NA measures the range of angles over which the system can collect light. It's crucial in fiber optics and microscopy.</p>
+            <p><strong>Formula:</strong> <em>NA = n × sin(θ)</em></p>
+            <br>
+            <p>Thus, if a cone of light is incident on one end of the fiber, it will be guided through it provided the semi angle of 
+                the cone is less than im (Acceptance Angle)</p>
+            <img src="numerical-aperture.jpg" alt="Numerical Aperture Diagram" style="width:100%; max-width:600px; border:1px solid #ccc;">
+        </section>
+
+        <!-- Cutoff Parameter -->
+        <section>
+            <h3>7. Cutoff Parameter</h3>
+            <p>The cutoff parameter defines the conditions under which light can propagate in optical fibers.</p>
+            <p><strong>Formula:</strong> <em>V = (π × d × NA) / λ</em></p>
+            <!-- <img src="cutoff-parameter.jpg" alt="Cutoff Parameter Illustration" style="width:100%; max-width:600px; border:1px solid #ccc;"> -->
+        </section>
+
+        <section>
+            <h3>8. Attenuation</h3>
+            <p>Attenuation refers to decrease/loss in the light power during propagation along the optical fiber.</p>
+            <p>Light travelling in an optical fibre loses power over distance. The loss of power depends on the wavelength of the light 
+                and on the propagating material. For silica glass, the shorter wavelengths are attenuated the most.</p>
+        </section>
+
+        <!-- Number of Modes -->
+        <section>
+            <h3>9. Number of Modes</h3>
+            <p>The number of modes describes the distinct patterns of light propagation in an optical fiber.</p>
+            <p><strong>Formula:</strong> <em>M = q x V² / (2 ( 2 + q ))</em> where V is the normalized frequency.</p>
+            <!-- <img src="number-of-modes.jpg" alt="Number of Modes Diagram" style="width:100%; max-width:600px; border:1px solid #ccc;"> -->
+        </section>
+
+        <!-- Power Loss in Optical Fibers -->
+        <section>
+            <h3>10. Power Loss in Optical Fibers</h3>
+            <p>Fiber loss is the ratio of power at the output end of a fiber P(out) to the power launched into the fiber P(in). </p>
+            <p>Power loss in fibers occurs due to absorption, scattering, and radiation.</p>
+            <p><strong>Formula:</strong> <em>P = P₀ × 10^(-αL/10)</em></p>
+            <!-- <img src="power-loss.jpg" alt="Power Loss in Optical Fibers" style="width:100%; max-width:600px; border:1px solid #ccc;"> -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Optics & Laser Physics</p>
+    </footer>
+</body>
+</html>
