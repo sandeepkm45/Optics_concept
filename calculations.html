@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculations - Optics & Laser Physics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Optics & Laser Physics - Calculations</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="theory.html">Theory</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Perform Calculations</h2>
+
+        <!-- Snell's Law -->
+        <section>
+            <h3>Snell's Law</h3>
+            <label>Angle of Incidence (θ₁) in degrees:</label>
+            <input type="number" id="angle1" placeholder="e.g., 30">
+            <br>
+            <label>Refractive Index 1 (n₁):</label>
+            <input type="number" id="n1" placeholder="e.g., 1.5">
+            <br>
+            <label>Refractive Index 2 (n₂):</label>
+            <input type="number" id="n2" placeholder="e.g., 1.0">
+            <br>
+            <button onclick="calculateSnellsLaw()">Calculate</button>
+            <button onclick="clearSnellsLaw()">Clear</button>
+            <p id="snellResult"></p>
+        </section>
+
+        <!-- Brewster's Angle -->
+        <section>
+            <h3>Brewster's Angle</h3>
+            <label>Refractive Index (n):</label>
+            <input type="number" id="brewerIndex" placeholder="e.g., 1.5">
+            <br>
+            <button onclick="calculateBrewster()">Calculate</button>
+            <button onclick="clearBrewster()">Clear</button>
+            <p id="brewsterResult"></p>
+        </section>
+
+        <!-- Total Internal Reflection (TIR) -->
+        <section>
+            <h3>Total Internal Reflection (TIR)</h3>
+            <label>Refractive Index 1 (n₁):</label>
+            <input type="number" id="tirN1" placeholder="e.g., 1.5">
+            <br>
+            <label>Refractive Index 2 (n₂):</label>
+            <input type="number" id="tirN2" placeholder="e.g., 1.0">
+            <br>
+            <button onclick="calculateTIR()">Calculate TIR</button>
+            <button onclick="clearTIR()">Clear</button>
+            <p id="tirResult"></p>
+        </section>
+
+        <!-- Numerical Aperture (NA) -->
+        <section>
+            <h3>Numerical Aperture (NA)</h3>
+            <label>Refractive Index (n):</label>
+            <input type="number" id="naN" placeholder="e.g., 1.5">
+            <br>
+            <label>Half-Angle of Cone (θ) in degrees:</label>
+            <input type="number" id="naTheta" placeholder="e.g., 30">
+            <br>
+            <button onclick="calculateNA()">Calculate NA</button>
+            <button onclick="clearNA()">Clear</button>
+            <p id="naResult"></p>
+        </section>
+
+        <!-- Number of Modes -->
+        <!-- <section>
+            <h3>Number of Modes</h3>
+            <label>Numerical Aperture (NA):</label>
+            <input type="number" id="numModesNA" placeholder="e.g., 0.2">
+            <br>
+            <label>Wavelength (λ) in micrometers:</label>
+            <input type="number" id="numModesLambda" placeholder="e.g., 0.8">
+            <br>
+            <button onclick="calculateModes()">Calculate Modes</button>
+            <button onclick="clearModes()">Clear</button>
+            <p id="modesResult"></p>
+        </section> -->
+
+        <!-- Power Loss -->
+        <section>
+            <h3>Power Loss</h3>
+            <label>Initial Power (P₀) in mW:</label>
+            <input type="number" id="powerInitial" placeholder="e.g., 100">
+            <br>
+            <label>Attenuation Coefficient (α) in dB/km:</label>
+            <input type="number" id="attenuation" placeholder="e.g., 0.2">
+            <br>
+            <label>Distance (L) in km:</label>
+            <input type="number" id="distance" placeholder="e.g., 10">
+            <br>
+            <button onclick="calculatePowerLoss()">Calculate Power Loss</button>
+            <button onclick="clearPowerLoss()">Clear</button>
+            <p id="powerLossResult"></p>
+        </section>
+    </main>
+
+    <footer>
+        <!-- <p>&copy; 2025 Optics & Laser Physics</p> -->
+    </footer>
+
+    <script>
+        // Snell's Law
+        function calculateSnellsLaw() {
+            const angle1 = parseFloat(document.getElementById("angle1").value);
+            const n1 = parseFloat(document.getElementById("n1").value);
+            const n2 = parseFloat(document.getElementById("n2").value);
+
+            if (isNaN(angle1) || isNaN(n1) || isNaN(n2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            const angle1Rad = angle1 * (Math.PI / 180);
+            const angle2Rad = Math.asin((n1 / n2) * Math.sin(angle1Rad));
+            const angle2 = angle2Rad * (180 / Math.PI);
+
+            document.getElementById("snellResult").innerText = 
+                `Refracted Angle (θ₂) = ${angle2.toFixed(2)}°`;
+        }
+
+        function clearSnellsLaw() {
+            document.getElementById("angle1").value = '';
+            document.getElementById("n1").value = '';
+            document.getElementById("n2").value = '';
+            document.getElementById("snellResult").innerText = '';
+        }
+
+        // Brewster's Angle
+        function calculateBrewster() {
+            const n = parseFloat(document.getElementById("brewerIndex").value);
+            if (isNaN(n)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            const brewsterAngleRad = Math.atan(n);
+            const brewsterAngle = brewsterAngleRad * (180 / Math.PI);
+
+            document.getElementById("brewsterResult").innerText = 
+                `Brewster's Angle = ${brewsterAngle.toFixed(2)}°`;
+        }
+
+        function clearBrewster() {
+            document.getElementById("brewerIndex").value = '';
+            document.getElementById("brewsterResult").innerText = '';
+        }
+
+        // TIR Calculation
+        function calculateTIR() {
+            const n1 = parseFloat(document.getElementById("tirN1").value);
+            const n2 = parseFloat(document.getElementById("tirN2").value);
+
+            if (isNaN(n1) || isNaN(n2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            if (n1 > n2) {
+                const criticalAngleRad = Math.asin(n2 / n1);
+                const criticalAngle = criticalAngleRad * (180 / Math.PI);
+                document.getElementById("tirResult").innerText = 
+                    `Critical Angle = ${criticalAngle.toFixed(2)}° (TIR occurs when incidence > ${criticalAngle.toFixed(2)}°)`;
+            } else {
+                document.getElementById("tirResult").innerText = 
+                    "TIR does not occur as n1 ≤ n2.";
+            }
+        }
+
+        function clearTIR() {
+            document.getElementById("tirN1").value = '';
+            document.getElementById("tirN2").value = '';
+            document.getElementById("tirResult").innerText = '';
+        }
+
+        // Numerical Aperture (NA)
+        function calculateNA() {
+            const n = parseFloat(document.getElementById("naN").value);
+            const theta = parseFloat(document.getElementById("naTheta").value);
+
+            if (isNaN(n) || isNaN(theta)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            const thetaRad = theta * (Math.PI / 180);
+            const na = n * Math.sin(thetaRad);
+
+            document.getElementById("naResult").innerText = 
+                `Numerical Aperture (NA) = ${na.toFixed(3)}`;
+        }
+
+        function clearNA() {
+            document.getElementById("naN").value = '';
+            document.getElementById("naTheta").value = '';
+            document.getElementById("naResult").innerText = '';
+        }
+
+        // Number of Modes
+        function calculateModes() {
+            const na = parseFloat(document.getElementById("numModesNA").value);
+            const lambda = parseFloat(document.getElementById("numModesLambda").value);
+
+            if (isNaN(na) || isNaN(lambda)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            const V = (Math.PI * na * lambda) / (2 * na);
+            const modes = Math.floor(V ** 2 / 2);
+
+            document.getElementById("modesResult").innerText = 
+                `Number of Modes = ${modes}`;
+        }
+
+        function clearModes() {
+            document.getElementById("numModesNA").value = '';
+            document.getElementById("numModesLambda").value = '';
+            document.getElementById("modesResult").innerText = '';
+        }
+
+        // Power Loss Calculation
+        function calculatePowerLoss() {
+            const P0 = parseFloat(document.getElementById("powerInitial").value);
+            const alpha = parseFloat(document.getElementById("attenuation").value);
+            const L = parseFloat(document.getElementById("distance").value);
+
+            if (isNaN(P0) || isNaN(alpha) || isNaN(L)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            const powerLoss = P0 * Math.pow(10, -alpha * L / 10);
+            document.getElementById("powerLossResult").innerText = 
+                `Power after loss = ${powerLoss.toFixed(2)} mW`;
+        }
+
+        function clearPowerLoss() {
+            document.getElementById("powerInitial").value = '';
+            document.getElementById("attenuation").value = '';
+            document.getElementById("distance").value = '';
+            document.getElementById("powerLossResult").innerText = '';
+        }
+    </script>
+</body>
+</html>
