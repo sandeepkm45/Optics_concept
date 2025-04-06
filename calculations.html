@@ -186,10 +186,10 @@
 
         // Numerical Aperture (NA)
         function calculateNA() {
-            const n = parseFloat(document.getElementById("naN").value);
+            // const n = parseFloat(document.getElementById("naN").value);
             const theta = parseFloat(document.getElementById("naTheta").value);
 
-            if (isNaN(n) || isNaN(theta)) {
+            if ( isNaN(theta)) {
                 alert("Please enter valid numbers.");
                 return;
             }
